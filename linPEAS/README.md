@@ -1,9 +1,9 @@
 # LinPEAS - Linux Privilege Escalation Awesome Script 
-[![CI-linpeas_prod](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/actions/workflows/CI-linpeas_prod.yml/badge.svg)](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/actions/workflows/CI-linpeas_prod.yml)
+[![CI-master_test](https://github.com/carlospolop/PEASS-ng/actions/workflows/CI-master_tests.yml/badge.svg)](https://github.com/carlospolop/PEASS-ng/actions/workflows/CI-master_tests.yml)
 
 ![](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/raw/master/linPEAS/images/linpeas.png)
 
-**LinPEAS is a script that search for possible paths to escalate privileges on Linux/Unix\* hosts. The checks are explained on [book.hacktricks.xyz](https://book.hacktricks.xyz/linux-unix/privilege-escalation)**
+**LinPEAS is a script that search for possible paths to escalate privileges on Linux/Unix\*/MacOS hosts. The checks are explained on [book.hacktricks.xyz](https://book.hacktricks.xyz/linux-unix/privilege-escalation)**
 
 Check the **Local Linux Privilege Escalation checklist** from **[book.hacktricks.xyz](https://book.hacktricks.xyz/linux-unix/linux-privilege-escalation-checklist)**.
 
@@ -63,7 +63,7 @@ It uses **/bin/sh** syntax, so can run in anything supporting `sh` (and the bina
 
 By default, **linpeas won't write anything to disk and won't try to login as any other user using `su`**.
 
-By default linpeas takes around **2 mins** to complete, but It could take from **4 to 5 minutes** to execute all the checks using **-a** parameter *(Recommended option for CTFs)*:
+By default linpeas takes around **4 mins** to complete, but It could take from **5 to 10 minutes** to execute all the checks using **-a** parameter *(Recommended option for CTFs)*:
 - From less than 1 min to 2 mins to make almost all the checks
 - Almost 1 min to search for possible passwords inside all the accesible files of the system
 - 20s/user bruteforce with top2000 passwords *(need `-a`)* - Notice that this check is **super noisy**
@@ -212,61 +212,7 @@ file="/tmp/linPE";RED='\033[0;31m';Y='\033[0;33m';B='\033[0;34m';NC='\033[0m';rm
   - [x] Password policy
 
 - **Software Information**
-  - [x] MySQl (Version, user being configured, loging as "root:root","root:toor","root:", user hashes extraction via DB and file, possible backup user configured, credentials in config, cmd exec library)
-  - [x] PostgreSQL (Version, try login in "template0" and "template1" as: "postgres:", "psql:", file DBs, Config)
-  - [x] Apache (Version)
-  - [x] PHP cookies
-  - [x] Wordpress (Database credentials)
-  - [x] Drupal (Database credentials)
-  - [x] Moodle (Database credentials)
-  - [x] Tomcat (Credentials)
-  - [x] Mongo (Version, Credentials)
-  - [x] Supervisor (Credentials)
-  - [x] Cesi (Credentials)
-  - [x] Rsyncd (Credentials)
-  - [x] Hostapd (Credentials)
-  - [x] Wifi (Credentials)
-  - [x] Anaconda-ks (Credentials)
-  - [x] VNC (Credentials)
-  - [x] LDAP database (Credentials)
-  - [x] Open VPN files (Credentials)
-  - [x] SSH (private keys, known_hosts, authorized_hosts, authorized_keys, main config parameters in sshd_config, certificates, agents)
-  - [X] PAM-SSH (Unexpected "auth" values)
-  - [x] Cloud Credentials (credenals-AWS-, credentials.gb-GC-, legacy_credentials-GC-, access_tokens.db-GC-, accessTokens.json-Azure-, azureProfile.json-Azure-)
-  - [x] NFS (privilege escalation misconfiguration)
-  - [x] Kerberos (configuration & tickets in /tmp)
-  - [x] Kibana (credentials)
-  - [x] Logstash (Username and possible code execution)
-  - [x] Elasticseach (Config info and Version via port 9200)
-  - [x] Vault-ssh (Config values, secrets list and .vault-token files)
-  - [x] screen and tmux sessions
-  - [x] Couchdb
-  - [x] Redis
-  - [x] Dovecot
-  - [x] Mosquitto
-  - [x] Neo4j
-  - [x] Cloud-Init
-  - [x] Erlang Cookie
-  - [X] GVM config
-  - [x] IPSEC files
-  - [x] IRSSI config file
-  - [x] Keyring files
-  - [x] Filelliza files
-  - [x] Backup-manager
-  - [x] Splunk
-  - [x] Gitlab
-  - [x] PGP/GPG files
-  - [x] Vim swp files
-  - [x] ctr
-  - [x] runc
-  - [x] Firefox user files
-  - [x] Google Chrome user files
-  - [x] Autologin files
-  - [x] S/Key
-  - [x] YubiKey
-  - [x] Passwords inside pam.d
-  - [x] FastCGI params
-  - [x] SNMPD
+  - [x] Check out [sensitive_files.yaml](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/blob/master/build_lists/sensitive_files.yaml)
 
 - **Generic Interesting Files**
   - [x] SUID & SGID files
@@ -304,10 +250,6 @@ file="/tmp/linPE";RED='\033[0;31m';Y='\033[0;33m';B='\033[0;34m';NC='\033[0m';rm
   - [x] Specific hashes (blowfish, joomla&vbulletin, phpbb3, wp, drupal, linuxmd5, apr1md5, sha512crypt, apachesha)
   - [x] Generic hashes MD5, SHA1, SHA256, SHA512
 </details>
-
-## Let's improve PEASS together
-
-If you want to **add something** and have **any cool idea** related to this project, please let me know it in the **telegram group https://t.me/peass** or using **[github issues](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/issues)** and we will update the master version.
 
 ## Please, if this tool has been useful for you consider to donate
 
